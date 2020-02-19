@@ -6,7 +6,7 @@ This project uses BenchmarkDotnet to measure performance of parts of Wasabi impl
 
 ```
 git clone https://github.com/zkSNACKs/WasabiBenchmark.git
-git submodule --init --recursive
+git submodule update --init --recursive
 ```
 
 ## Analyzing performance in Windows:
