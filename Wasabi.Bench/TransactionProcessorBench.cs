@@ -91,7 +91,7 @@ namespace WalletWasabi.Bench
 			var keyManager = KeyManager.CreateNew(out _, "password");
 
 			// 4. Create chaumian coinjoin client.
-			var chaumianClient = new CoinJoinClient(synchronizer, Network.Main, keyManager, () => new Uri("http://localhost:354874"), null);
+			var chaumianClient = new CoinJoinClient(synchronizer, Network.Main, keyManager);
 
 			// 5. Create wallet service.
 			await bitcoinStore.InitializeAsync(dir, Network.Main);
@@ -99,11 +99,7 @@ namespace WalletWasabi.Bench
 			var workDir = Path.Combine(datadir, EnvironmentHelpers.GetMethodName());
 			var feeProviders = new FeeProviders(new[]{ synchronizer });
 
-			var wallet = new WalletService(bitcoinStore, keyManager, synchronizer, chaumianClient, nodes, workDir, serviceConfiguration, feeProviders);
-			using (var cts = new CancellationTokenSource(TimeSpan.FromSeconds(30)))
-			{
-				await wallet.InitializeAsync(cts.Token);
-			}
+			var wallet = new WalletService(bitcoinStore, keyManager, synchronizer, nodes, workDir, serviceConfiguration, feeProviders);
 
 			return wallet.TransactionProcessor;
 		}

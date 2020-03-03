@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-  	<ProjectReference Include="../Wasabi/WalletWasabi/WalletWasabi.csproj" />
+  	<ProjectReference Include="../WalletWasabi/WalletWasabi/WalletWasabi.csproj" />
   </ItemGroup>
 
 </Project>

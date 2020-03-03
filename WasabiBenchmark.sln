@@ -5,9 +5,7 @@ VisualStudioVersion = 15.0.26124.0
 MinimumVisualStudioVersion = 15.0.26124.0
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wasabi.Bench", "Wasabi.Bench\WalletWasabi.Bench.csproj", "{C7F60CC5-533A-498B-8D1D-DDA29B29974B}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Wasabi", "Wasabi", "{D02D07A4-0D78-469B-B0C4-DEFB6FA370CB}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wasabi", "Wasabi\WalletWasabi\WalletWasabi.csproj", "{79B14B05-EABD-4EEB-B003-7ECBF7393E75}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WalletWasabi", "WalletWasabi\WalletWasabi\WalletWasabi.csproj", "{79B14B05-EABD-4EEB-B003-7ECBF7393E75}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -46,8 +44,5 @@ Global
 		{79B14B05-EABD-4EEB-B003-7ECBF7393E75}.Release|x64.Build.0 = Release|Any CPU
 		{79B14B05-EABD-4EEB-B003-7ECBF7393E75}.Release|x86.ActiveCfg = Release|Any CPU
 		{79B14B05-EABD-4EEB-B003-7ECBF7393E75}.Release|x86.Build.0 = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{79B14B05-EABD-4EEB-B003-7ECBF7393E75} = {D02D07A4-0D78-469B-B0C4-DEFB6FA370CB}
 	EndGlobalSection
 EndGlobal
