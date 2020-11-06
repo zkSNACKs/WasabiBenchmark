@@ -1,3 +1,5 @@
+#if FALSE
+
 using System;
 using System.Linq;
 using System.Collections.Generic;
@@ -140,3 +142,4 @@ namespace WalletWasabi.Bench
 		}
 	}
 }
+#endif
