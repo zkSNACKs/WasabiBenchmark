@@ -10,7 +10,7 @@ using WalletWasabi.WabiSabi.Crypto;
 
 namespace WalletWasabi.Bench
 {
-	[SimpleJob(RuntimeMoniker.NetCoreApp31), RankColumn]
+	[SimpleJob(RuntimeMoniker.NetCoreApp50), RankColumn]
 	public class WabiSabiBench
 	{
 		[Params(2)]

@@ -25,8 +25,8 @@ Where `TransactionProcessorBench` is the name of the benchmark class you are ins
 COMPlus_PerfMapEnabled=1 ~/GitHub/WalletWasabi/WalletWasabi.Bench/bin/Release/netcoreapp3.1/WalletWasabi.Bench &
 sudo perf record -p $! -g
 sudo perf script -f | ~/GitHub/FlameGraph/stackcollapse-perf.pl | ~/GitHub/FlameGraph/flamegraph.pl > flame.svg
-sudo python -m SimpleHTTPServer 80 &
-firefox http://127.0.0.1:80/
+python3 -m http.server &
+firefox http://127.0.0.1:8000/
 ``` 
 
 And there you can pick the flamegraph.
