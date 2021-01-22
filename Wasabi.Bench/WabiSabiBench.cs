@@ -4,8 +4,9 @@ using NBitcoin;
 using BenchmarkDotNet.Jobs;
 using WalletWasabi.Crypto.Randomness;
 using WalletWasabi.Crypto;
-using WalletWasabi.Wabisabi;
+using WalletWasabi.WabiSabi;
 using WalletWasabi.Helpers;
+using WalletWasabi.WabiSabi.Crypto;
 
 namespace WalletWasabi.Bench
 {
@@ -15,18 +16,14 @@ namespace WalletWasabi.Bench
 		[Params(2)]
 		public int k;
 
-		[Params(50)]
-		public int bits;
-
 		[Benchmark]
 		public void Process()
 		{
-			Constants.RangeProofWidth = bits;
 			var numberOfCredentials = k;
 			var rnd = new SecureRandom();
-			var sk = new CoordinatorSecretKey(rnd);
+			var sk = new CredentialIssuerSecretKey(rnd);
 
-			var client = new WabiSabiClient(sk.ComputeCoordinatorParameters(), numberOfCredentials, rnd);
+			var client = new WabiSabiClient(sk.ComputeCredentialIssuerParameters(), numberOfCredentials, rnd);
 
 			var (credentialRequest, validationData) = client.CreateRequestForZeroAmount();
 			var issuer = new CredentialIssuer(sk, numberOfCredentials, rnd);

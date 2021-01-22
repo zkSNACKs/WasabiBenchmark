@@ -8,14 +8,14 @@ namespace WalletWasabi.Bench
 		public static void Main(string[] args)
 		{
 			var switcher = BenchmarkSwitcher.FromAssembly(typeof(Program).Assembly);
-			if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
-			{
-				switcher.Run(args, new AllowNonOptimized());
-			}
-			else
-			{
+			//if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
+			//{
+			//	switcher.Run(args, new AllowNonOptimized());
+			//}
+			//else
+			//{
 				switcher.Run(args);
-			}
+			//}
 		}
 	}
 }

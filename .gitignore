@@ -273,3 +273,8 @@ lcov.info
 *.DS_Store
 /WalletWasabi.Backend/wwwroot/onion-index.html
 /NuGet.Config
+perf.data
+perf.data.old
+BenchmarkDotNet.Artifacts/**/
+.ionide/symbolCache.db
+flame.*
