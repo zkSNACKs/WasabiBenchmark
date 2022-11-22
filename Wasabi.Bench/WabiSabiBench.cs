@@ -14,7 +14,7 @@ namespace WalletWasabi.Bench
 	[SimpleJob(RuntimeMoniker.Net60), RankColumn]
 	public class WabiSabiBench
 	{
-		[Params(1343750000000, 2150000000000L, 4300000000000)]
+		[Params(134375000000, 2150000000000L, 4300000000000)]
 		public long upperBound;  
 			
 		[Benchmark]
