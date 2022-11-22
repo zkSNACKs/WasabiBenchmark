@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.26124.0
 MinimumVisualStudioVersion = 15.0.26124.0
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wasabi.Bench", "Wasabi.Bench\WalletWasabi.Bench.csproj", "{C7F60CC5-533A-498B-8D1D-DDA29B29974B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WalletWasabi", "WalletWasabi\WalletWasabi.csproj", "{79B14B05-EABD-4EEB-B003-7ECBF7393E75}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WalletWasabi", "WalletWasabi\WalletWasabi\WalletWasabi.csproj", "{79B14B05-EABD-4EEB-B003-7ECBF7393E75}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

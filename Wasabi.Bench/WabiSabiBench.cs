@@ -1,4 +1,5 @@
 using System.Linq;
+using System.Threading;
 using BenchmarkDotNet.Attributes;
 using NBitcoin;
 using BenchmarkDotNet.Jobs;
@@ -10,31 +11,29 @@ using WalletWasabi.WabiSabi.Crypto;
 
 namespace WalletWasabi.Bench
 {
-	[SimpleJob(RuntimeMoniker.NetCoreApp50), RankColumn]
+	[SimpleJob(RuntimeMoniker.Net60), RankColumn]
 	public class WabiSabiBench
 	{
-		[Params(2)]
-		public int k;
-
+		[Params(1343750000000, 2150000000000L, 4300000000000)]
+		public long upperBound;  
+			
 		[Benchmark]
 		public void Process()
 		{
-			var numberOfCredentials = k;
 			var rnd = new SecureRandom();
 			var sk = new CredentialIssuerSecretKey(rnd);
 
-			var client = new WabiSabiClient(sk.ComputeCredentialIssuerParameters(), numberOfCredentials, rnd);
+			var client = new WabiSabiClient(sk.ComputeCredentialIssuerParameters(), rnd, upperBound);
 
-			var (credentialRequest, validationData) = client.CreateRequestForZeroAmount();
-			var issuer = new CredentialIssuer(sk, numberOfCredentials, rnd);
-			var credentialResponse = issuer.HandleRequest(credentialRequest);
-			client.HandleResponse(credentialResponse, validationData);
+			var (zeroCredentialRequest, zeroValidationData) = client.CreateRequestForZeroAmount();
+			var issuer = new CredentialIssuer(sk, rnd, upperBound);
+			var zeroCredentialResponse = issuer.HandleRequest(zeroCredentialRequest);
+			var zeroCredentials = client.HandleResponse(zeroCredentialResponse, zeroValidationData);
 
-			var present = client.Credentials.ZeroValue.Take(numberOfCredentials);
-			(credentialRequest, validationData) = client.CreateRequest(new[] { Money.Coins(1) }, present);
-			var credentialRequested = credentialRequest.Requested.ToArray();
-			credentialResponse = issuer.HandleRequest(credentialRequest);
-			client.HandleResponse(credentialResponse, validationData);
+			var credentialsToPresent = zeroCredentials.Take(2);
+			var (realCredentialsRequest, realValidationData) = client.CreateRequest(new[] { Money.Coins(1).Satoshi }, credentialsToPresent, CancellationToken.None);
+			var realCredentialResponse = issuer.HandleRequest(realCredentialsRequest);
+			client.HandleResponse(realCredentialResponse, realValidationData);
 		}
 	}
 }

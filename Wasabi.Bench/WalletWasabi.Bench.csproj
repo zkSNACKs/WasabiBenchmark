@@ -2,18 +2,20 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
     <DebugType>pdbonly</DebugType>
-    <LangVersion>9.0</LangVersion>
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="BenchmarkDotNet" Version="0.12.1" />
+    <PackageReference Include="BenchmarkDotNet" Version="0.13.2" />
+    <PackageReference Include="NBitcoin" Version="7.0.14" />
+    <PackageReference Include="NBitcoin.Secp256k1" Version="3.0.1" />
   </ItemGroup>
 
   <ItemGroup>
-  	<ProjectReference Include="../WalletWasabi/WalletWasabi.csproj" />
+  	<ProjectReference Include="..\WalletWasabi\WalletWasabi\WalletWasabi.csproj" />
+  	<ProjectReference Include="./WalletWasabi/WalletWasabi/WalletWasabi.csproj" />
   </ItemGroup>
 
 </Project>

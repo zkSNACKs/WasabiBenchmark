@@ -6,14 +6,14 @@ This project uses BenchmarkDotnet to measure performance of parts of Wasabi impl
 
 ```
 git clone https://github.com/zkSNACKs/WasabiBenchmark.git
-git submodule update --init --recursive
+ln -s <your_wasabi_repo_directory> WalletWasabi
 ```
 
 ## Analyzing performance in Windows:
 
 You can generate flamegraph to view with PerfView on Windows with the following command:
 ```powershell
-dotnet run -c Release --project ./Wasabi.Bench/WalletWasabi.Bench.csproj -- --runtimes netcoreapp3.1 --filter TransactionProcessorBench --profiler ETW
+dotnet run -c Release --project ./Wasabi.Bench/WalletWasabi.Bench.csproj -- --runtimes net6.0 --filter TransactionProcessorBench --profiler ETW
 ```
 
 Where `TransactionProcessorBench` is the name of the benchmark class you are insterested in.
